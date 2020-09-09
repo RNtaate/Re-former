@@ -17,10 +17,13 @@
 
 
 <%= form_tag("/users", method: "POST") do %>
-<%= label_tag(:username, "User name:") %>
+<p><%= label_tag(:username, "User name:") %></p>
 <%= text_field_tag(:username) %>
-<%= label_tag(:email, "Email:") %>
-<%= email_field(:user, :email) %>
-<%= label_tag(:password, "Password") %>
+<p><%= label_tag(:email, "Email:") %></p>
+<%= email_field_tag(:email) %>
+<p><%= label_tag(:password, "Password:") %></p>
 <%= password_field_tag(:password) %>
+<p><%= label_tag(:password_confirmation, "Confirm Password:") %></p>
+<%= password_field_tag(:password_confirmation) %>
+<p><%= submit_tag("submit") %></p>
 <% end %>
