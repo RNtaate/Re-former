@@ -1,5 +1,7 @@
 # Re-Former
 
+![Linters](https://github.com/RNtaate/Re-former/workflows/Linters/badge.svg)
+
 ## Project Description
 This project demonstrates form building in Ruby on Rails.
 
