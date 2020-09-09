@@ -4,5 +4,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { in: 8..30 }, uniqueness: true, format: { with: /[\w]+@([\w-]+\.)+[\w-]{2,4}/,
   message: "not valid" }
   validates :password, presence: true
-  validates_confirmation_of :password,  message: 'should match confirmation', if: :password
+  validates_confirmation_of :password,  message: 'should match password', if: :password
 end
