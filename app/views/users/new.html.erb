@@ -6,8 +6,7 @@
 </ul>
 
 <% if false %>
-
-  <form accept-charset="UTF-8" action="/users" method="POST">
+  <form accept-charset="UTF-8" action=<%= users_path%> method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <label for="username">User name:</label>
     <input type="text" id="username" name="user[username]"><br><br>
@@ -21,8 +20,8 @@
   </form>
 <% end %>
 
-<% if false%>
-  <%= form_tag("/users", method: "POST") do %>
+<%if false%>
+  <%= form_tag(users_path, method: "POST") do %>
   <p><%= label_tag(:username, "User name:") %></p>
   <%= text_field_tag(:username) %>
   <p><%= label_tag(:email, "Email:") %></p>
@@ -32,7 +31,7 @@
   <p><%= label_tag(:password_confirmation, "Confirm Password:") %></p>
   <%= password_field_tag(:password_confirmation) %>
   <p><%= submit_tag("submit") %></p>
-  <% end %>
+  <%end%>
 <%end%>
 
 <%= form_for(@user) do |f| %>
