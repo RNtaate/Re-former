@@ -1,29 +1,38 @@
 <h1>Create new user</h1>
 <% if false %>
 
-<form accept-charset="UTF-8" action="/users" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label for="username">User name:</label>
-  <input type="text" id="username" name="user[username]"><br><br>
-  <label for="email">email:</label>
-  <input type="email" id="email" name="user[email]"><br><br>
-  <label for="password">password:</label>
-  <input type="password" id="password" name="user[password]"><br><br>
-  <label for="confirmpass">confirm password:</label>
-  <input type="password" id="confirmpass" name="user[password_confirmation]"><br><br>
-  <input type="submit" value="Create">
-</form>
+  <form accept-charset="UTF-8" action="/users" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="username">User name:</label>
+    <input type="text" id="username" name="user[username]"><br><br>
+    <label for="email">email:</label>
+    <input type="email" id="email" name="user[email]"><br><br>
+    <label for="password">password:</label>
+    <input type="password" id="password" name="user[password]"><br><br>
+    <label for="confirmpass">confirm password:</label>
+    <input type="password" id="confirmpass" name="user[password_confirmation]"><br><br>
+    <input type="submit" value="Create">
+  </form>
 <% end %>
 
+<% if false%>
+  <%= form_tag("/users", method: "POST") do %>
+  <p><%= label_tag(:username, "User name:") %></p>
+  <%= text_field_tag(:username) %>
+  <p><%= label_tag(:email, "Email:") %></p>
+  <%= email_field_tag(:email) %>
+  <p><%= label_tag(:password, "Password:") %></p>
+  <%= password_field_tag(:password) %>
+  <p><%= label_tag(:password_confirmation, "Confirm Password:") %></p>
+  <%= password_field_tag(:password_confirmation) %>
+  <p><%= submit_tag("submit") %></p>
+  <% end %>
+<%end%>
 
-<%= form_tag("/users", method: "POST") do %>
-<p><%= label_tag(:username, "User name:") %></p>
-<%= text_field_tag(:username) %>
-<p><%= label_tag(:email, "Email:") %></p>
-<%= email_field_tag(:email) %>
-<p><%= label_tag(:password, "Password:") %></p>
-<%= password_field_tag(:password) %>
-<p><%= label_tag(:password_confirmation, "Confirm Password:") %></p>
-<%= password_field_tag(:password_confirmation) %>
-<p><%= submit_tag("submit") %></p>
-<% end %>
+<%= form_for(@user) do |f| %>
+User name: <%= f.text_field :username %><br>
+Email: <%= f.email_field :email, placeholder: "some@yahoo.com"%><br>
+Password: <%= f.password_field :password%><br>
+Confirm Password: <%= f.password_field :password_confirmation%><br>
+<%= f.submit%>
+<%end%> 
